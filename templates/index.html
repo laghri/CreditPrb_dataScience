@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Credit App</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="{{ url_for('static', filename='LOGO.png') }}" alt="Image">
+       </nav>
+      </header>
+ <div class="login">
+   
+	<h1>Simulation de votre Credit</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <select class="input" name="gender"  >
+            <option value="" disabled selected>gender</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+        <select class="input" name="Credit_History"  >
+            <option value="" disabled selected>Credit_History</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+    	
+        <select class="input" name="Married" placeholder="Married" >
+            <option value="" disabled selected>Married</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+		<input type="text" name="CoapplicantIncome" placeholder="CoapplicantIncome" required="required" class="input" />
+      
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <div>
+   
+        
+    </div>
+   <span class="{% if condition %}true {% else %} fasle{% endif %}">
+   {% if condition %}
+   la reponse de votre requetes: yes 
+   {% else %}
+   la reponse de votre requetes: No  
+   {% endif %}
+      
+   </span>
+   
+
+ </div>
+
+
+</body>
+</html>
